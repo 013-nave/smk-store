@@ -36,14 +36,17 @@ function App() {
   };
 
   // Fitur: Update Qty (+/-)
-  const updateQty = (id, amount) => {
-    setCart(prev => prev.map(item => {
-      if (item.id === id) {
-        return {...item, qty: Math.max(1, item.qty + amount)};
-      }
-      return item;
-    }));
-  };
+  const updateQty = (id, change) => {
+  setCart((prev) =>
+    prev
+      .map((item) =>
+        item.id === id
+          ? { ...item, qty: item.qty + change }
+          : item
+      )
+      .filter((item) => item.qty > 0)
+  );
+};
 
   // Fitur: Hapus Item
   const removeItem = (id) => {

@@ -6,7 +6,7 @@ function CartSidebar({ isOpen, closeCart, cartItems = [], updateQty }) {
 
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.price * item.qty,
-    0
+    0,
   );
 
   const formatRupiah = (num) =>
@@ -78,6 +78,20 @@ function CartSidebar({ isOpen, closeCart, cartItems = [], updateQty }) {
                       <span>{item.qty}</span>
                       <button onClick={() => updateQty(item.id, 1)}>+</button>
                     </div>
+
+                    {/* <button
+                      onClick={() => updateQty(item.id, -item.qty)}
+                      style={{
+                        background: "none",
+                        border: "none",
+                        color: "#dc2626",
+                        fontSize: "1.2rem",
+                        cursor: "pointer",
+                      }}
+                      title="Remove item"
+                    >
+                      🗑️
+                    </button> */}
                   </div>
                 ))
               )}
@@ -94,9 +108,7 @@ function CartSidebar({ isOpen, closeCart, cartItems = [], updateQty }) {
                 includeMargin
               />
 
-              <h3 style={{ marginTop: 15 }}>
-                {formatRupiah(totalPrice)}
-              </h3>
+              <h3 style={{ marginTop: 15 }}>{formatRupiah(totalPrice)}</h3>
 
               <button
                 className="checkout-btn"
@@ -133,15 +145,15 @@ function CartSidebar({ isOpen, closeCart, cartItems = [], updateQty }) {
                   <span>
                     {item.name} x{item.qty}
                   </span>
-                  <span>
-                    {formatRupiah(item.price * item.qty)}
-                  </span>
+                  <span>{formatRupiah(item.price * item.qty)}</span>
                 </div>
               ))}
 
               <p>=======================</p>
 
-              <strong style={{ display: "flex", justifyContent: "space-between" }}>
+              <strong
+                style={{ display: "flex", justifyContent: "space-between" }}
+              >
                 <span>TOTAL</span>
                 <span>{formatRupiah(totalPrice)}</span>
               </strong>
@@ -172,10 +184,7 @@ function CartSidebar({ isOpen, closeCart, cartItems = [], updateQty }) {
               <span>{formatRupiah(totalPrice)}</span>
             </div>
 
-            <button
-              className="checkout-btn"
-              onClick={() => setView("qr")}
-            >
+            <button className="checkout-btn" onClick={() => setView("qr")}>
               Pay Now
             </button>
           </div>

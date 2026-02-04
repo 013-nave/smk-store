@@ -286,26 +286,52 @@ body {
 .cart-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 0;
+  gap: 14px;
+  padding: 14px 0;
   border-bottom: 1px solid var(--border-soft);
+}
+
+.cart-item img {
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  object-fit: cover;
 }
 
 .qty-control {
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #e5e7eb;
-  padding: 4px 10px;
-  border-radius: 8px;
+  gap: 14px;
+  background: #f3f4f6;
+  padding: 6px 14px;
+  border-radius: 13px;
 }
 
 .qty-control button {
-  background: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 30%;
   border: none;
-  font-weight: bold;
+  background: white;
+  font-size: 1.1rem;
+  font-weight: 700;
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
+  transition: 0.2s ease;
 }
+
+.qty-control button:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.qty-control span {
+  min-width: 18px;
+  text-align: center;
+  font-weight: 700;
+}
+
 
 /* ===============================
    FOOTER (STICKY VIA FLEX)
