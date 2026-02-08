@@ -69,7 +69,7 @@ function App() {
       />
 
       <main className="container">
-        <h1 className="hero-title">Kirana nub :p</h1>
+        <h1 className="hero-title">Our Products</h1>
         {loading ? <p style={{textAlign:'center'}}>⏳ Loading Page...</p> : 
           <ProductList products={products} onAddToCart={addToCart} />
         }
